@@ -6,7 +6,7 @@ from __future__ import annotations
 import re
 from typing import Any, List, Optional, TYPE_CHECKING
 
-from app.extensions import bcrypt  # ✅ تم التعديل
+from app.extensions import bcrypt 
 from .base import BaseModel
 
 if TYPE_CHECKING:
