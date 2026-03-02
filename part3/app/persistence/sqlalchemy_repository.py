@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""SQLAlchemy repository implementation (Task 5)."""
+"""SQLAlchemy repository implementation (Tasks 5 & 6)."""
 
 from app.extensions import db
 from app.persistence.repository import Repository
+from app.models.user import User
 
 
 class SQLAlchemyRepository(Repository):
@@ -52,3 +53,24 @@ class SQLAlchemyRepository(Repository):
             .filter(getattr(self.model, attr_name) == attr_value)
             .first()
         )
+
+
+# ==================== TASK 6: UserRepository ====================
+
+class UserRepository(SQLAlchemyRepository):
+    """User-specific repository with custom queries."""
+    
+    def __init__(self):
+        super().__init__(User)
+
+    def get_user_by_email(self, email):
+        """
+        Get a user by email address.
+        
+        Args:
+            email (str): Email address to search for
+            
+        Returns:
+            User: User object or None if not found
+        """
+        return self.model.query.filter_by(email=email).first()
