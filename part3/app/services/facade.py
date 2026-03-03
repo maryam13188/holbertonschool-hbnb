@@ -1,8 +1,13 @@
 #!/usr/bin/python3
-"""HBnB Facade (Tasks 1, 5 & 6)."""
+"""HBnB Facade (Tasks 1, 5, 6 & 7)."""
 
-from app.persistence.sqlalchemy_repository import UserRepository
+from app.persistence.sqlalchemy_repository import (
+    UserRepository, PlaceRepository, ReviewRepository, AmenityRepository
+)
 from app.models.user import User
+from app.models.place import Place
+from app.models.review import Review
+from app.models.amenity import Amenity
 
 
 class HBnBFacade:
@@ -11,16 +16,17 @@ class HBnBFacade:
     Task 5: SQLAlchemyRepository support
     Task 1: Password hashing validation
     Task 6: UserRepository integration
+    Task 7: Place, Review, Amenity repositories integration
     """
 
     def __init__(self):
-        # ==================== TASK 6: Use UserRepository ====================
+        # ==================== TASK 6: UserRepository ====================
         self.user_repo = UserRepository()
         
-        # Other repositories (Tasks 6,7)
-        self.amenity_repo = None
-        self.place_repo = None
-        self.review_repo = None
+        # ==================== TASK 7: Place, Review, Amenity ====================
+        self.place_repo = PlaceRepository()
+        self.review_repo = ReviewRepository()
+        self.amenity_repo = AmenityRepository()
 
     # ==================== USERS (Tasks 1, 5 & 6) ====================
 
@@ -91,44 +97,118 @@ class HBnBFacade:
         """Delete user by ID (Task 6)."""
         return self.user_repo.delete(user_id)
 
-    # ==================== PLACEHOLDERS FOR TASKS 6 & 7 ====================
-
-    def create_amenity(self, amenity_data):
-        """Placeholder - Task 6/7"""
-        pass
-
-    def get_amenity(self, amenity_id):
-        """Placeholder - Task 6/7"""
-        pass
-
-    def get_all_amenities(self):
-        """Placeholder - Task 6/7"""
-        return []
+    # ==================== PLACES (Task 7) ====================
 
     def create_place(self, place_data):
-        """Placeholder - Task 7"""
-        pass
+        """
+        Create a new place.
+        
+        Args:
+            place_data (dict): Place data
+            
+        Returns:
+            Place: Created place object
+            
+        Raises:
+            ValueError: If validation fails
+        """
+        place = Place(**place_data)
+        return self.place_repo.add(place)
 
     def get_place(self, place_id):
-        """Placeholder - Task 7"""
-        pass
+        """Get place by ID (Task 7)."""
+        return self.place_repo.get(place_id)
 
     def get_all_places(self):
-        """Placeholder - Task 7"""
-        return []
+        """Get all places (Task 7)."""
+        return self.place_repo.get_all()
+
+    def update_place(self, place_id, data):
+        """Update place information (Task 7)."""
+        return self.place_repo.update(place_id, data)
+
+    def delete_place(self, place_id):
+        """Delete place by ID (Task 7)."""
+        return self.place_repo.delete(place_id)
+
+    # ==================== REVIEWS (Task 7) ====================
 
     def create_review(self, review_data):
-        """Placeholder - Task 7"""
-        pass
+        """
+        Create a new review.
+        
+        Args:
+            review_data (dict): Review data
+            
+        Returns:
+            Review: Created review object
+            
+        Raises:
+            ValueError: If validation fails
+        """
+        review = Review(**review_data)
+        return self.review_repo.add(review)
 
     def get_review(self, review_id):
-        """Placeholder - Task 7"""
-        pass
+        """Get review by ID (Task 7)."""
+        return self.review_repo.get(review_id)
+
+    def get_all_reviews(self):
+        """Get all reviews (Task 7)."""
+        return self.review_repo.get_all()
 
     def get_reviews_by_place(self, place_id):
-        """Placeholder - Task 7"""
+        """
+        Get all reviews for a specific place.
+        Note: This will be implemented in Task 8 with relationships.
+        """
         return []
 
     def get_reviews_by_user(self, user_id):
-        """Placeholder - Task 7"""
+        """
+        Get all reviews by a specific user.
+        Note: This will be implemented in Task 8 with relationships.
+        """
         return []
+
+    def update_review(self, review_id, data):
+        """Update review information (Task 7)."""
+        return self.review_repo.update(review_id, data)
+
+    def delete_review(self, review_id):
+        """Delete review by ID (Task 7)."""
+        return self.review_repo.delete(review_id)
+
+    # ==================== AMENITIES (Task 7) ====================
+
+    def create_amenity(self, amenity_data):
+        """
+        Create a new amenity.
+        
+        Args:
+            amenity_data (dict): Amenity data
+            
+        Returns:
+            Amenity: Created amenity object
+            
+        Raises:
+            ValueError: If validation fails
+        """
+        amenity = Amenity(**amenity_data)
+        return self.amenity_repo.add(amenity)
+
+    def get_amenity(self, amenity_id):
+        """Get amenity by ID (Task 7)."""
+        return self.amenity_repo.get(amenity_id)
+
+    def get_all_amenities(self):
+        """Get all amenities (Task 7)."""
+        return self.amenity_repo.get_all()
+
+
+    def update_amenity(self, amenity_id, data):
+        """Update amenity information (Task 7)."""
+        return self.amenity_repo.update(amenity_id, data)
+    def delete_amenity(self, amenity_id):
+        """Delete amenity by ID (Task 7)."""
+        return self.amenity_repo.delete(amenity_id)
