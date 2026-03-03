@@ -24,11 +24,9 @@ class Review(BaseModel):
     text = db.Column(db.Text, nullable=False)
     rating = db.Column(db.Integer, nullable=False)
 
-    # Relationships (to be implemented in Task 8)
-    # user_id = db.Column(db.String(36), db.ForeignKey('users.id'), nullable=False)
-    # place_id = db.Column(db.String(36), db.ForeignKey('places.id'), nullable=False)
-    # user = db.relationship('User', backref='reviews', lazy=True)
-    # place = db.relationship('Place', backref='reviews', lazy=True, cascade='all, delete-orphan')
+    # ==================== TASK 8: Foreign Keys - Amaal ====================
+    user_id  = db.Column(db.String(36), db.ForeignKey('users.id'),  nullable=False)
+    place_id = db.Column(db.String(36), db.ForeignKey('places.id'), nullable=False)
 
     def __init__(self, **kwargs):
         """
@@ -60,14 +58,15 @@ class Review(BaseModel):
 
     # ============= Serialization =============
 
-    def to_dict(self) -> dict:
-        """Convert review to dictionary."""
-        base_dict = super().to_dict()
-        base_dict.update({
-            "rating": self.rating,
-            "text": self.text,
-        })
-        return base_dict
+   def to_dict(self) -> dict:    #Task 8, Amaal
+    base_dict = super().to_dict()
+    base_dict.update({
+        "text":     self.text,
+        "rating":   self.rating,
+        "user_id":  self.user_id,
+        "place_id": self.place_id,
+    })
+    return base_dict
 
     # ============= Magic Methods =============
 
