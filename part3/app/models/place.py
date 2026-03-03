@@ -2,10 +2,8 @@
 """Place model with SQLAlchemy - Task 7"""
 
 from __future__ import annotations
-
 import re
 from typing import Any
-
 from app.extensions import db
 from .base_model import BaseModel
 
@@ -26,27 +24,27 @@ class Place(BaseModel):
         latitude (float): Latitude coordinate (required, between -90 and 90)
         longitude (float): Longitude coordinate (required, between -180 and 180)
     """
-    
+
     __tablename__ = 'places'
 
     # ==================== TASK 7: SQLAlchemy Columns ====================
-    title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text, nullable=True)
-    price = db.Column(db.Float, nullable=False)
-    latitude = db.Column(db.Float, nullable=False)
-    longitude = db.Column(db.Float, nullable=False)
+    title       = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text,        nullable=True)
+    price       = db.Column(db.Float,       nullable=False)
+    latitude    = db.Column(db.Float,       nullable=False)
+    longitude   = db.Column(db.Float,       nullable=False)
 
     # ==================== TASK 8: Relationships - Amaal ====================
     owner_id  = db.Column(db.String(36), db.ForeignKey('users.id'), nullable=False)
     reviews   = db.relationship('Review',  backref='place', lazy=True,
-                            cascade='all, delete-orphan')
+                                cascade='all, delete-orphan')
     amenities = db.relationship('Amenity', secondary=place_amenity, lazy='subquery',
-                            backref=db.backref('places', lazy=True))
+                                backref=db.backref('places', lazy=True))
 
     def __init__(self, **kwargs):
         """
         Initialize a new Place with validation.
-        
+
         Raises:
             ValueError: If validation fails for any field
         """
@@ -88,12 +86,14 @@ class Place(BaseModel):
 
     # ============= Business Methods =============
 
-def get_average_rating(self) -> float:    #Task 8, Amaal
+    def get_average_rating(self) -> float:    #Task 8, Amaal
         if not self.reviews:
             return 0.0
         return sum(r.rating for r in self.reviews) / len(self.reviews)
 
-    def to_dict(self) -> dict:
+    # ============= Serialization =============
+
+    def to_dict(self) -> dict:    #Task 8, Amaal
         base_dict = super().to_dict()
         base_dict.update({
             "title":       self.title,
