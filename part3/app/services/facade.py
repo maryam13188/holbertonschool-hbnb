@@ -212,3 +212,13 @@ class HBnBFacade:
     def delete_amenity(self, amenity_id):
         """Delete amenity by ID (Task 7)."""
         return self.amenity_repo.delete(amenity_id)
+        
+    # ==================== REVIEWS HELPERS (Task 3) Amaal ====================
+
+    def get_review_by_user_and_place(self, user_id, place_id):
+        """Check if a user has already reviewed a place."""
+        reviews = self.review_repo.get_all()
+        for review in reviews:
+            if review.user_id == user_id and review.place_id == place_id:
+                return review
+        return None
