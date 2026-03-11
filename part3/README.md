@@ -88,31 +88,28 @@ holbertonschool-hbnb/
 │
 └── README.md
 ```
-## MUNIRAH TASKs: - Part 3
+## Task Completion by Team Member
 
-### Task 0 — Modify App Factory + Config Integration
-- Implemented the `create_app()` function in `app/__init__.py`
-- Connected the application to `config.py`
-- Initialized the main extensions:
-  - `db`
-  - `bcrypt`
-  - `jwt`
-- Registered the API structure and ensured the application starts correctly from `run.py`
+### 🔵 Munirah — Task 0, 5, 9
+| Task | Description | Status |
+|------|-------------|--------|
+| 0 | Modify App Factory + Config Integration | ✅ Complete |
+| 5 | Implement SQLAlchemy Repository | ✅ Complete |
+| 9 | SQL Scripts (Schema + Initial Data) | ✅ Complete |
 
-### Task 5 — Implement SQLAlchemy Repository
-- Built the `SQLAlchemyRepository` in `app/persistence/sqlalchemy_repository.py`
-- Implemented core database operations:
-  - `add()`
-  - `get()`
-  - `get_all()`
-  - `update()`
-  - `delete()`
-- Connected the repository to `db.session`
-- Enabled the application to use persistent database storage instead of in-memory storage
+### 🟣 Maryam — Task 1, 6, 7, 10
+| Task | Description | Status |
+|------|-------------|--------|
+| 1 | User Model + Password Hashing (bcrypt) | ✅ Complete |
+| 6 | Map User Entity to SQLAlchemy | ✅ Complete |
+| 7 | Map Place, Review, Amenity Entities | ✅ Complete |
+| 10 | ER Diagram (Mermaid.js) | ✅ Complete |
 
-### Task 9 — SQL Scripts
-- Created `sql_scripts/schema.sql`
-- Created `sql_scripts/initial_data.sql`
-- Defined the database schema for the main entities
-- Added initial sample data for testing and development
+### 🟢 Amal — Task 2, 3, 4, 8
+| Task | Description | Status |
+|------|-------------|--------|
+| 2 | JWT Authentication Setup | ✅ Complete |
+| 3 | Authenticated User Access Endpoints | ✅ Complete |
+| 4 | Administrator Access Endpoints | ✅ Complete |
+| 8 | Map Relationships Between Entities | ✅ Complete |
 
