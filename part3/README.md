@@ -252,4 +252,12 @@ Visualize database schema.
 
 The database consists of five main tables:
 
+### users
+Stores user information:
+- `id`
+- `email`
+- `password`
+- `first_name`
+- `last_name`
+- `is_admin`
 
