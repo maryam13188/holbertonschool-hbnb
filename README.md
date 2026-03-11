@@ -94,3 +94,45 @@ This project is part of the Holberton School curriculum.
 - **Program:** Advanced Backend Specialization
 - **Project:** HBnB Evolution - Part 2 (Business Logic & API)
 - **Date:** February 2026
+
+## Part 3: Database Integration & Authentication
+
+### Project Overview
+
+| Task | Description |
+|------|-------------|
+| **Task 0** | Modify App Factory + Config Integration |
+| **Task 1** | User Model + Password Hashing (bcrypt) |
+| **Task 2** | JWT Authentication Setup |
+| **Task 3** | Authenticated User Access Endpoints |
+| **Task 4** | Administrator Access Endpoints |
+| **Task 5** | Implement SQLAlchemy Repository |
+| **Task 6** | Map User Entity to SQLAlchemy |
+| **Task 7** | Map Place, Review, Amenity Entities |
+| **Task 8** | Map Relationships Between Entities |
+| **Task 9** | SQL Scripts (Schema + Initial Data) |
+| **Task 10** | ER Diagram (Mermaid.js) |
+
+---
+
+### Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **SQLAlchemy** | ORM for database persistence |
+| **Flask-JWT-Extended** | JWT authentication |
+| **Flask-Bcrypt** | Password hashing |
+| **SQLite/MySQL** | Development & production databases |
+| **Repository Pattern** | Data access abstraction |
+| **Facade Pattern** | Business logic layer |
+| **Mermaid.js** | ER diagram visualization |
+
+---
+## Academic Context
+School: Holberton School Saudi Arabia
+
+Program: Advanced Backend Specialization
+
+Project: HBnB Evolution - Part 3
+
+Date: March 2026
