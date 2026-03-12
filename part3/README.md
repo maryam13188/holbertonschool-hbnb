@@ -157,9 +157,9 @@ Implement JWT-based authentication.
 Protect endpoints requiring authentication.
 
 **Deliverables:**
-- Current user endpoint (`/api/v1/auth/me`)
-- User can update their own profile
-- User can delete their own reviews
+- User can update their own profile (excluding email/password)
+- User can create/update/delete their own reviews
+- Places: only owner can update
 - JWT required for protected operations
 
 ---
