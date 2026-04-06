@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --cream: #F5F0E8;
+    --warm-white: #FDFAF5;
+    --beige: #E8DCC8;
+    --tan: #C9B99A;
+    --brown: #8B6F47;
+    --dark-brown: #5C4A32;
+    --text: #3D2B1F;
+    --text-light: #7A6655;
+    --accent: #C17F3A;
+    --accent-hover: #A66A28;
+    --card-shadow: 0 4px 20px rgba(92, 74, 50, 0.12);
+    --border: 1px solid #ddd;
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: var(--dark-brown);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+header .logo {
+    height: 45px;
+    width: auto;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header nav a {
+    color: var(--beige);
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+}
+
+header nav a:hover {
+    color: var(--accent);
+}
+
+.login-button {
+    background-color: var(--accent);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 700 !important;
+    transition: background-color 0.2s !important;
+}
+
+.login-button:hover {
+    background-color: var(--accent-hover) !important;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--dark-brown);
+    color: var(--tan);
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+    margin-top: auto;
+    letter-spacing: 0.03em;
+}
+
+/* ===== MAIN ===== */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+/* ===== FILTER SECTION ===== */
+#filter {
+    background-color: var(--warm-white);
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    border: var(--border);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+#filter label {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--dark-brown);
+}
+
+#price-filter {
+    padding: 0.4rem 0.8rem;
+    border: var(--border);
+    border-radius: 6px;
+    background-color: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+}
+
+/* ===== PLACE CARDS ===== */
+#places-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.place-card {
+    background-color: var(--warm-white);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin: 20px 0;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.place-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(92, 74, 50, 0.18);
+}
+
+.place-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--dark-brown);
+}
+
+.place-card .price {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.details-button {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.details-button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ===== PLACE DETAILS ===== */
+.place-details {
+    background-color: var(--warm-white);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin: 20px 0;
+    box-shadow: var(--card-shadow);
+}
+
+.place-details h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--dark-brown);
+    margin-bottom: 1rem;
+}
+
+.place-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.place-info p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.place-info strong {
+    color: var(--dark-brown);
+}
+
+.amenities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.amenity-tag {
+    background-color: var(--beige);
+    color: var(--dark-brown);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* ===== REVIEWS ===== */
+#reviews {
+    margin: 2rem 0;
+}
+
+#reviews h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-brown);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.review-card {
+    background-color: var(--warm-white);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin: 20px 0;
+    box-shadow: var(--card-shadow);
+}
+
+.review-card .reviewer {
+    font-weight: 700;
+    color: var(--dark-brown);
+    margin-bottom: 0.3rem;
+}
+
+.review-card .rating {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.review-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ===== FORMS ===== */
+.add-review {
+    background-color: var(--warm-white);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin: 20px 0;
+    box-shadow: var(--card-shadow);
+}
+
+.add-review h2,
+#login-form h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.form,
+#login-form,
+#review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+}
+
+.form label,
+#login-form label,
+#review-form label {
+    font-weight: 700;
+    color: var(--dark-brown);
+    margin-bottom: 0.2rem;
+    display: block;
+}
+
+.form input,
+.form textarea,
+.form select,
+#login-form input,
+#review-form textarea,
+#review-form select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: var(--border);
+    border-radius: 6px;
+    background-color: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form input:focus,
+.form textarea:focus,
+#login-form input:focus,
+#review-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.form textarea,
+#review-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form button[type="submit"],
+#login-form button[type="submit"],
+#review-form button[type="submit"] {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    align-self: flex-start;
+}
+
+.form button[type="submit"]:hover,
+#login-form button[type="submit"]:hover,
+#review-form button[type="submit"]:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ===== LOGIN PAGE ===== */
+.login-container {
+    max-width: 420px;
+    margin: 3rem auto;
+    background-color: var(--warm-white);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+/* ===== ERROR MESSAGE ===== */
+.error-message {
+    color: #c0392b;
+    background-color: #fde8e8;
+    border: 1px solid #f5c6c6;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+/* ===== PAGE TITLE ===== */
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    .place-details h1 {
+        font-size: 1.5rem;
+    }
+}
