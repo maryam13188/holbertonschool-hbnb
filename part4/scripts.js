@@ -234,7 +234,6 @@ function displayPlaceDetails(place) {
             <img src="${imgSrc}" alt="${placeName}" class="place-details-image">
             <h1>${placeName}</h1>
             <div class="place-info">
-                <p><strong>Host:</strong> ${hostName}</p>
                 <p><strong>Price:</strong> $${placePrice} / night</p>
                 <p><strong>Location:</strong> ${location}</p>
                 <p><strong>Description:</strong> ${description}</p>
