@@ -46,7 +46,7 @@ function setupLogout() {
         logoutLink.addEventListener('click', (e) => {
             e.preventDefault();
             setCookie('token', '', -1);
-            window.location.reload();
+            window.location.href = 'index.html';
         });
     }
 }
@@ -345,7 +345,7 @@ async function handleReviewResponse(response) {
         if (placeId && window.location.pathname.includes('add_review')) {
             window.location.href = `place.html?id=${placeId}`;
         } else if (placeId) {
-            fetchReviews(getCookie('token'), placeId);
+            window.location.reload();
         }
     } else {
         const data = await response.json().catch(() => ({}));
